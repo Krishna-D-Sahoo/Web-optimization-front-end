@@ -425,7 +425,7 @@ var pizzaElementGenerator = function(i) {
       console.log(newWidth + 'px');
       var randomPizza = document.querySelectorAll(".randomPizzaContainer");
       for (var i = 0; i < randomPizza.length; i++) {
-        randomPizza[i].style.width = newWidth*100 + 'px';
+        randomPizza[i].style.width = (100/newWidth) + '%';
       }
 
   pizzaWorker.onerror = function(error) {
