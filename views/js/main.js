@@ -421,11 +421,10 @@ var pizzaElementGenerator = function(i) {
   var pizzaWorker = new Worker('js/worker.js');
   
   pizzaWorker.onmessage = function(e) {
-      var newWidth = e.data[0];
-      console.log(newWidth + 'px');
+      var newWidth = e.data;
       var randomPizza = document.querySelectorAll(".randomPizzaContainer");
       for (var i = 0; i < randomPizza.length; i++) {
-        randomPizza[i].style.width = (100/newWidth) + '%';
+        randomPizza[i].style.width = newWidth[i] + 'px';
       }
 
   pizzaWorker.onerror = function(error) {

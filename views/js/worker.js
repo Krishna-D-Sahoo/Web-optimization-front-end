@@ -27,7 +27,7 @@ function sizeSwitcher (size) {
 
 
 self.onmessage = function(e) {
-  var newWidth = 0;
+  var newWidth = new Array();
   var size = e.data[0];
   var randomPizza = e.data[1];
   var winWid = e.data[2];
@@ -35,7 +35,7 @@ self.onmessage = function(e) {
     // var randomPizza = document.querySelectorAll(".randomPizzaContainer");
     for (var i = 0; i < randomPizza.length; i++) {
       var dx = determineDx(randomPizza[i], winWid, size);
-      newWidth = newWidth + (randomPizza[i] + dx) + 'px';
+      newWidth.push(randomPizza[i] + dx);
     }
     postMessage(newWidth);
   
